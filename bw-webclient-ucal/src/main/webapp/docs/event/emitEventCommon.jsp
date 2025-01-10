@@ -1,7 +1,7 @@
 <%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix="c" %>
 <%@ taglib uri='bedework' prefix='bw' %>
 
-<c:set var="event" value="${eventInfo.event}" scope="request"  />
+<c:set var="event" value="${requestScope.eventInfo.event}" scope="request"  />
 <%-- Output a single event. This page handles fields common to all views --%>
   <event>
     <bw:emitText name="event" property="entityType"/>

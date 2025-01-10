@@ -3,7 +3,7 @@
 
 <events>
   <c:forEach var="formattedEvent" items="${boxInfo.events}" >
-    <c:set var="event" value="${formattedEvent.event}"/>
+    <c:set var="event" value="${formattedEvent.event}" scope="request"/>
 
     <event>
       <bw:emitText name="event" property="name" />
