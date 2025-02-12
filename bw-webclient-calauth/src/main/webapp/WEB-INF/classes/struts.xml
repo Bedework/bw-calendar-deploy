@@ -4,9 +4,9 @@
         "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
         "http://struts.apache.org/dtds/struts-2.5.dtd">
 
-<!-- ====================================================================
+<!-- =================================================
    This is a the Struts 2 configuration for Bedework
-   ====================================================================== -->
+   =================================================== -->
 
 <!--
   The action-mappings below are divided into "normal" actions (suffixed
@@ -76,7 +76,29 @@
   <constant name="struts.enable.SlashesInActionNames" value="true"/>
   <constant name="struts.action.extension" value="do,gdo,rdo" />
 
-  <package name="bedework" extends="struts-default">
+  <package name="bedeworkSetup" namespace="/"
+           extends="struts-default">
+    <action    name="setup"
+               class="org.bedework.webcommon.search.SearchParamsAction">
+      <param name="actionType">action</param>
+      <param name="conversation">only</param>
+
+      <result name="success">/main/showMain.rdo</result>
+      <result name="listEvents" type="redirect">/main/showEventList.rdo</result>
+    </action>
+
+    <!-- ==============================================
+                          Monitor
+         ============================================== -->
+
+    <action    name="monitor"
+               class="org.bedework.webcommon.monitor.MonitorAction">
+      <param name="actionType">resource</param>
+    </action>
+  </package>
+
+  <package name="bedeworkMain" namespace="/main"
+           extends="struts-default">
     <!-- global redirects used by many actions -->
     <global-results>
       <result name="initialise">/main/initialise.rdo</result>
@@ -96,6 +118,8 @@
 
       <result name="cancelled" type="redirect">/main/showMain.rdo</result>
 
+      <result name="badRequest" type="redirect">/main/showMain.rdo</result>
+
       <result name="noAccess" type="redirect">/main/showMain.rdo</result>
 
       <result name="notFound" type="redirect">/main/showMain.rdo</result>
@@ -103,13 +127,13 @@
       <result name="loggedOut">/login/logout.html</result>
     </global-results>
 
-    <!-- =========================================================
+    <!-- ===============================================
                       Fundamental Actions
-         ========================================================= -->
+         =============================================== -->
 
     <!-- ........... PUBLIC and PERSONAL clients ...... -->
 
-    <action    name="main/initialise"
+    <action    name="initialise"
                class="org.bedework.webcommon.RenderMainAction">
       <param name="actionType">render</param>
       <param name="conversation">only</param>
@@ -118,7 +142,7 @@
     </action>
 
 
-    <action    name="main/processShowMain"
+    <action    name="processShowMain"
                class="org.bedework.webcommon.RenderMainAction">
       <param name="actionType">render</param>
       <param name="conversation">processAndOnly</param>
@@ -126,7 +150,7 @@
       <result name="success">/docs/main.jsp</result>
     </action>
 
-    <action    name="main/showMain"
+    <action    name="showMain"
                class="org.bedework.webcommon.RenderMainAction">
       <param name="actionType">render</param>
       <param name="conversation">only</param>
@@ -134,7 +158,7 @@
       <result name="success">/docs/main.jsp</result>
     </action>
 
-    <action    name="main/showMainEnd"
+    <action    name="showMainEnd"
                class="org.bedework.webcommon.RenderMainAction">
       <param name="actionType">render</param>
       <param name="conversation">end</param>
@@ -142,16 +166,7 @@
       <result name="success">/docs/main.jsp</result>
     </action>
 
-    <action    name="setup"
-               class="org.bedework.webcommon.search.SearchParamsAction">
-      <param name="actionType">action</param>
-      <param name="conversation">only</param>
-
-      <result name="success">/main/showMain.rdo</result>
-      <result name="listEvents" type="redirect">/main/showEventList.rdo</result>
-    </action>
-
-    <action    name="main/reload"
+    <action    name="reload"
                class="org.bedework.webcommon.misc.ReloadAction">
       <param name="actionType">action</param>
       <param name="conversation">only</param>
@@ -159,11 +174,11 @@
       <result name="success" type="redirect">/main/showMain.rdo</result>
     </action>
 
-    <!-- ...............................................................
+    <!-- ................................................
              Switch to a subscription, calendar or view
-         ............................................................... -->
+         ................................................ -->
 
-    <action    name="main/setSelection"
+    <action    name="setSelection"
                class="org.bedework.webcommon.search.SearchParamsAction">
       <param name="actionType">action</param>
       <param name="conversation">start</param>
@@ -173,7 +188,7 @@
       <result name="noViewDef" type="redirect">/main/showMain.rdo</result>
     </action>
 
-    <action    name="main/setSelectionList"
+    <action    name="setSelectionList"
                class="org.bedework.webcommon.search.SearchParamsAction">
       <param name="actionType">action</param>
       <param name="conversation">start</param>
@@ -183,11 +198,11 @@
       <result name="noViewDef" type="redirect">/main/showEventList.rdo</result>
     </action>
 
-    <!-- ...............................................................
+    <!-- ...............................................
              Actions for ongoing
-         ............................................................... -->
+         ............................................... -->
 
-    <action    name="main/setOngoingList"
+    <action    name="setOngoingList"
                class="org.bedework.webcommon.search.SearchParamsAction">
       <param name="actionType">action</param>
       <param name="conversation">start</param>
@@ -204,7 +219,7 @@
       <result name="notFound" type="redirect">/main/showOngoingList.rdo</result>
     </action>
 
-    <action    name="main/showOngoingList"
+    <action    name="showOngoingList"
                class="org.bedework.webcommon.search.RenderSearchResultAction">
       <param name="actionType">render</param>
       <param name="conversation">only</param>
@@ -220,11 +235,11 @@
       <result name="notFound">/docs/asyncError.jsp</result>
     </action>
 
-    <!-- ...............................................................
+    <!-- ..............................................
          Actions for mainEventList
-     ............................................................... -->
+     .................................................. -->
 
-    <action    name="main/setMainEventList"
+    <action    name="setMainEventList"
                class="org.bedework.webcommon.search.SearchParamsAction">
       <param name="actionType">action</param>
       <param name="conversation">start</param>
@@ -240,7 +255,7 @@
       <result name="notFound" type="redirect">/main/showMainEventList.rdo</result>
     </action>
 
-    <action    name="main/nextMainEventList"
+    <action    name="nextMainEventList"
                class="org.bedework.webcommon.search.SearchNextAction">
       <param name="actionType">action</param>
       <param name="conversation">start</param>
@@ -255,7 +270,7 @@
       <result name="notFound" type="redirect">/main/showMainEventList.rdo</result>
     </action>
 
-    <action    name="main/showMainEventList"
+    <action    name="showMainEventList"
                class="org.bedework.webcommon.search.RenderSearchResultAction">
       <param name="actionType">render</param>
       <param name="conversation">only</param>
@@ -270,11 +285,11 @@
       <result name="notFound">/docs/asyncError.jsp</result>
     </action>
 
-    <!-- ...............................................................
+    <!-- .................................................
              Display an event
-         ............................................................... -->
+         ................................................. -->
 
-    <action    name="main/setViewPeriod"
+    <action    name="setViewPeriod"
                class="org.bedework.webcommon.misc.GoToAction">
       <param name="actionType">action</param>
       <param name="conversation">start</param>
@@ -282,11 +297,11 @@
       <result name="success" type="redirect">/main/showMainEnd.rdo</result>
     </action>
 
-    <!-- ...............................................................
+    <!-- ................................................
            Display a list of events
-       ............................................................... -->
+       .................................................. -->
 
-    <action    name="main/listEvents"
+    <action    name="listEvents"
                class="org.bedework.webcommon.search.SearchParamsAction">
       <param name="actionType">action</param>
       <param name="conversation">start</param>
@@ -295,7 +310,7 @@
       <result name="success" type="redirect">/main/showEventList.rdo</result>
     </action>
 
-    <action    name="main/showEventList"
+    <action    name="showEventList"
                class="org.bedework.webcommon.search.RenderSearchResultAction">
       <param name="actionType">render</param>
       <param name="conversation">only</param>
@@ -303,49 +318,53 @@
 
       <result name="success">/docs/event/eventList.jsp</result>
     </action>
+  </package>
 
-    <!-- ===============================================================
-                          Events
-         =============================================================== -->
+  <!-- ==================================================
+                        Events
+       ======================================================== -->
 
-    <!-- ...............................................................
-             Display an event
-         ............................................................... -->
-
-    <action    name="event/eventView"
+  <!-- ...............................................................
+           Display an event
+       ............................................................... -->
+  <package name="bedeworkEvents" namespace="/event"
+           extends="struts-default">
+    <action    name="eventView"
                class="org.bedework.webcommon.event.EventKeyAction">
       <param name="actionType">action</param>
       <param name="conversation">start</param>
 
-      <result name="success" type="redirect">/event/showEventMore.rdo</result>
+      <result name="success"
+              type="redirect">/event/showEventMore.rdo</result>
     </action>
 
-    <action    name="event/showEventMore"
+    <action    name="showEventMore"
                class="org.bedework.webcommon.event.RenderEventAction">
       <param name="actionType">render</param>
       <param name="conversation">end</param>
 
       <result name="success">/docs/event/eventMore.jsp</result>
     </action>
+  </package>
 
-    <!-- ===============================================================
-                      Export (download) and Import
-         =============================================================== -->
+  <!-- ==================================================
+                    Export (download) and Import
+       ================================================== -->
 
-    <!-- ........... PUBLIC and PERSONAL clients ...... -->
-
-    <action    name="misc/export"
+  <package name="bedeworkMisc" namespace="/misc"
+           extends="struts-default">
+    <action    name="export"
                class="org.bedework.webcommon.misc.ExportAction">
       <param name="actionType">resource</param>
       <param name="conversation">only</param>
     </action>
 
-    <!-- ===============================================================
-                      Asynchronous calls and generic pages
-         =============================================================== -->
+    <!-- ================================================
+                   Asynchronous calls and generic pages
+         ================================================ -->
 
     <!-- an action for setting values into the form asynchronously -->
-    <action    name="misc/async"
+    <action    name="async"
                class="org.bedework.webcommon.NoopAction">
       <param name="actionType">render</param>
       <param name="conversation">only</param>
@@ -359,115 +378,129 @@
       <result name="notFound">/docs/asyncError.jsp</result>
     </action>
 
-    <action    name="misc/showPage"
+    <action    name="showPage"
                class="org.bedework.webcommon.RenderAction">
       <param name="actionType">render</param>
       <param name="conversation">only</param>
 
       <result name="success">/docs/showPage.jsp</result>
     </action>
+  </package>
 
-    <!-- ===============================================================
-                         Category Actions
-         =============================================================== -->
+  <!-- ===============================================
+                       Category Actions
+       =============================================== -->
 
-    <!-- ...............................................................
+  <package name="bedeworkCats" namespace="/categories"
+           extends="struts-default">
+    <!-- ...............................................
              Display categories page
-         ............................................................... -->
+         ............................................... -->
 
-    <action    name="categories/json"
+    <action    name="json"
                class="org.bedework.webcommon.category.FetchCategoriesAction">
       <param name="actionType">action</param>
       <param name="conversation">only</param>
       <param name="catlist">true</param>
     </action>
+  </package>
 
-    <!-- ===============================================================
-                         Contact Actions
-         =============================================================== -->
+  <!-- ==============================================
+                       Contact Actions
+       ============================================== -->
 
+  <package name="bedeworkContacts" namespace="/contact"
+           extends="struts-default">
     <!-- Must be a gdo action - returns json -->
-    <action    name="contact/all"
+    <action    name="all"
                class="org.bedework.webcommon.contact.FetchContactsAction">
       <param name="actionType">resource</param>
       <param name="conversation">only</param>
       <param name="mdl">locations</param>
     </action>
+  </package>
 
-    <!-- ===============================================================
-                          Locations
-         =============================================================== -->
+  <!-- ================================================
+                        Locations
+       ================================================ -->
 
+  <package name="bedeworkLocs" namespace="/location"
+           extends="struts-default">
     <!-- Must be a gdo action - returns json -->
-    <action    name="location/all"
+    <action    name="all"
                class="org.bedework.webcommon.location.FetchLocationsAction">
       <param name="actionType">resource</param>
       <param name="conversation">only</param>
       <param name="mdl">locations</param>
     </action>
+  </package>
 
-    <!-- ===============================================================
-                         Calendar Actions
-         =============================================================== -->
+  <!-- ================================================
+                       Calendar Actions
+       ================================================ -->
 
-    <!-- ........... PUBLIC and PERSONAL clients ...... -->
-
-    <action    name="calendar/showPublicCals"
+  <package name="bedeworkCalendars" namespace="/calendar"
+           extends="struts-default">
+    <action    name="showPublicCals"
                class="org.bedework.webcommon.RenderAction">
       <param name="actionType">render</param>
 
       <result name="success">/docs/calendar/calendarList.jsp</result>
     </action>
 
-    <action    name="calendar/fetchPublicCalendars"
+    <action    name="fetchPublicCalendars"
                class="org.bedework.webcommon.NoopAction">
       <param name="actionType">action</param>
 
       <result name="success" type="redirect">/calendar/showPublicCals.rdo</result>
     </action>
 
-    <action    name="calendar/showCals"
+    <action    name="showCals"
                class="org.bedework.webcommon.RenderAction">
       <param name="actionType">render</param>
 
       <result name="success">/docs/calendar/emitCalendars.jsp</result>
     </action>
 
-    <action    name="calendar/fetchCalendars"
+    <action    name="fetchCalendars"
                class="org.bedework.webcommon.NoopAction">
       <param name="actionType">action</param>
 
       <result name="success" type="redirect">/calendar/showCals.rdo</result>
     </action>
 
-    <action    name="calendar/showCalendarForExport"
+    <action    name="showCalendarForExport"
                class="org.bedework.webcommon.calendars.RenderCalendarAction">
       <param name="actionType">render</param>
 
       <result name="success">/docs/calendar/displayCalendarForExport.jsp</result>
     </action>
 
-    <action    name="calendar/fetchForExport"
+    <action    name="fetchForExport"
                class="org.bedework.webcommon.NoopAction">
       <param name="actionType">action</param>
 
-      <result name="success">/calendar/showCalendarForExport.rdo</result>
+      <result name="success"
+              type="redirect">/calendar/showCalendarForExport.rdo</result>
     </action>
 
     <!-- === display a page of descriptions for public calendars (not currently used) === -->
 
-    <action    name="calendar/showDescriptionList"
+    <action    name="showDescriptionList"
                class="org.bedework.webcommon.RenderAction">
       <param name="actionType">render</param>
 
       <result name="success">/docs/calendar/calendarDescriptions.jsp</result>
     </action>
+  </package>
 
-    <!-- ===============================================================
-                     Searching
-         =============================================================== -->
+  <!-- ================================================
+                   Searching
+       ================================================ -->
 
-    <action    name="search/search"
+  <package name="bedeworkSearch" namespace="/search"
+           extends="struts-default">
+    <action    name="search"
                class="org.bedework.webcommon.search.SearchParamsAction">
       <param name="actionType">action</param>
       <param name="conversation">start</param>
@@ -477,7 +510,7 @@
     </action>
 
 
-    <action    name="search/showResult"
+    <action    name="showResult"
                class="org.bedework.webcommon.search.RenderSearchResultAction">
       <param name="actionType">render</param>
       <param name="conversation">end</param>
@@ -485,29 +518,23 @@
       <result name="success">/docs/search/list.jsp</result>
     </action>
 
-    <action    name="search/next"
+    <action    name="next"
                class="org.bedework.webcommon.search.SearchNextAction">
       <param name="actionType">action</param>
       <param name="conversation">start</param>
 
       <result name="success" type="redirect">/search/showResult.rdo</result>
     </action>
+  </package>
 
-    <!-- ===============================================================
-                          Monitor
-         =============================================================== -->
+  <!-- ================================================
+         Widgets - simple pages that return XML snippets for use with
+         ajax enabled forms (such as the cachedfeeder)
+       ================================================ -->
 
-    <action    name="monitor"
-               class="org.bedework.webcommon.monitor.MonitorAction">
-      <param name="actionType">resource</param>
-    </action>
-
-    <!-- ===============================================================
-           Widgets - simple pages that return XML snippets for use with
-           ajax enabled forms (such as the cachedfeeder)
-         =============================================================== -->
-
-    <action    name="widget/showCategories"
+  <package name="bedeworkWidget" namespace="/widget"
+           extends="struts-default">
+    <action    name="showCategories"
                class="org.bedework.webcommon.RenderAction">
       <param name="actionType">render</param>
       <param name="mdl">showcats</param>
@@ -515,7 +542,7 @@
       <result name="success">/docs/widget/categories.jsp</result>
     </action>
 
-    <action    name="widget/categories"
+    <action    name="categories"
                class="org.bedework.webcommon.NoopAction">
       <param name="actionType">action</param>
       <param name="conversation">only</param>
@@ -525,7 +552,7 @@
       <result name="listEvents" type="redirect">/widget/showCategories.rdo</result>
     </action>
 
-    <action    name="widget/showGroups"
+    <action    name="showGroups"
                class="org.bedework.webcommon.RenderAction">
       <param name="actionType">render</param>
       <param name="mdl">showgroups</param>
@@ -533,7 +560,7 @@
       <result name="success">/docs/widget/groups.jsp</result>
     </action>
 
-    <action    name="widget/groups"
+    <action    name="groups"
                class="org.bedework.webcommon.admingroup.FetchAGsAction">
       <param name="actionType">action</param>
       <param name="conversation">only</param>
