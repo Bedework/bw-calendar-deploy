@@ -76,6 +76,9 @@
   <constant name="struts.multipart.maxSize" value="1000000" />
   <constant name="struts.enable.SlashesInActionNames" value="true"/>
   <constant name="struts.action.extension" value="do,gdo,rdo" />
+  <constant name="struts.parameters.requireAnnotations" value="false" />
+  <constant name="struts.allowlist.packageNames"
+            value="org.bedework.webcommon" />
 
   <package name="bedeworkSetup" namespace="/"
            extends="struts-default">
