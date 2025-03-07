@@ -28,6 +28,7 @@
     <bw:emitText name="calForm" property="event.name" tagName="name"/>
   </c:if>
   <bw:emitText name="calForm" property="eventRegAdminToken"/>
+  <bw:emitText name="calForm" property="eventRegWsUrl"/>
 
   <bw:form action="event/update" >
     <bw:textField name="calForm" property="summary"
