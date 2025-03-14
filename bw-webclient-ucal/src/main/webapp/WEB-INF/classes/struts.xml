@@ -77,7 +77,7 @@
   <constant name="struts.action.extension" value="do,gdo,rdo" />
   <constant name="struts.parameters.requireAnnotations" value="false" />
   <constant name="struts.allowlist.packageNames"
-            value="org.bedework.webcommon" />
+            value="org.bedework.webcommon,org.bedework.calfacade" />
 
   <package name="bedeworkSetup" namespace="/"
            extends="struts-default">
