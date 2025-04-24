@@ -85,8 +85,14 @@
                class="org.bedework.client.web.admin.MainAction">
       <param name="actionType">render</param>
 
-      <result name="success" type="redirect">/main/showMain.rdo</result>
-      <result name="loggedOut" type="redirect">/main/showMain.rdo</result>
+      <result name="success"
+              type="redirect">/main/showMain.rdo</result>
+      <result name="loggedOut"
+              type="redirect">/main/showMain.rdo</result>
+      <result name="noGroupAssigned"
+              type="redirect">/admin/showNoGroup.rdo</result>
+      <result name="chooseGroup"
+              type="redirect">/admingroup/showChooseGroup.rdo</result>
     </action>
   </package>
 
@@ -97,7 +103,8 @@
       <!-- set up state and get going. -->
       <result name="initial">/setup.do</result>
 
-      <result name="chooseGroup" type="redirect">/admingroup/showChooseGroup.rdo</result>
+      <result name="chooseGroup"
+              type="redirect">/admingroup/showChooseGroup.rdo</result>
 
       <result name="noGroupAssigned" type="redirect">/admin/showNoGroup.rdo</result>
 
@@ -1529,6 +1536,7 @@
                class="org.bedework.client.web.admin.admingroup.InitUpdateAGAction">
       <param name="actionType">action</param>
 
+      <result name="error" type="redirect">/admingroup/showUpdateList.rdo</result>
       <result name="continue" type="redirect">/admingroup/showUpdateList.rdo</result>
     </action>
 
