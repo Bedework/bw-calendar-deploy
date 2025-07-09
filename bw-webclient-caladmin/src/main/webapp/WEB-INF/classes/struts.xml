@@ -87,10 +87,16 @@
 
       <result name="success"
               type="redirect">/main/showMain.rdo</result>
+
+      <result name="noAccess"
+              type="redirect">/main/showMain.rdo</result>
+
       <result name="loggedOut"
               type="redirect">/main/showMain.rdo</result>
+
       <result name="noGroupAssigned"
               type="redirect">/admin/showNoGroup.rdo</result>
+
       <result name="chooseGroup"
               type="redirect">/admingroup/showChooseGroup.rdo</result>
     </action>
@@ -139,6 +145,7 @@
       <param name="conversation">only</param>
 
       <result name="success">/docs/main.jsp</result>
+      <result name="noAccess">/docs/noAccess.jsp</result>
     </action>
 
     <!-- for "main" we assume we're in the update list -->
