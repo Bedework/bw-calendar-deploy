@@ -27,8 +27,9 @@
     <bw:emitText name="calForm" property="event.ownerHref" tagName="owner"/>
     <bw:emitText name="calForm" property="event.name" tagName="name"/>
   </c:if>
-  <bw:emitText name="calForm" property="eventRegAdminToken"/>
-  <bw:emitText name="calForm" property="eventRegWsUrl"/>
+  <bw:emitText name="globals" property="eventRegAdminToken"/>
+  <bw:emitText name="globals" property="eventRegWsUrl"/>
+  <bw:emitText name="globals" property="eventRegAdminUrl"/>
 
   <bw:form action="event/update" >
     <bw:textField name="calForm" property="summary"

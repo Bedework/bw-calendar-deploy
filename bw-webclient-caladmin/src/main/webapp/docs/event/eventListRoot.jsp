@@ -4,8 +4,9 @@
 <%--  Generate events --%>
 <c:set var="detailView" value="true" scope="request"/>
 <events>
-  <bw:emitText name="calForm" property="eventRegAdminToken"/>
-  <bw:emitText name="calForm" property="eventRegWsUrl"/>
+  <bw:emitText name="globals" property="eventRegAdminToken"/>
+  <bw:emitText name="globals" property="eventRegWsUrl"/>
+  <bw:emitText name="globals" property="eventRegAdminUrl"/>
   <c:if test="${not empty requestScope.bw_search_result}">
     <c:set var="sres" value="${bw_search_result}" />
     <c:if test="${not empty requestScope.bw_search_params}" >
