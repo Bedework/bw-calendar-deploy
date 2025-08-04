@@ -1,0 +1,8 @@
+[[deploy]]
+== Bedework deploy
+These modules are all deploteed as war files providing the front end web clients or web services.
+
+Those modules prefixed with *bw-webclient-* generate XML, from jsp mostly, which is then transformed by XSL.
+
+Those modules prefixed with *bw-calendar-* are web services used by the clients or generally available.
+

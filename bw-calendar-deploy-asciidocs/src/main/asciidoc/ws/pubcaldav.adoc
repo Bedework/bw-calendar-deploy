@@ -1,0 +1,3 @@
+[[pubcaldav]]
+=== pubcaldav
+Provides an unauthenticated caldav service. Used to provide access to public calendar data and resources such as images.

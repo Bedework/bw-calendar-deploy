@@ -1,0 +1,5 @@
+[[ucaldav]]
+=== ucaldav
+Provides an authenticated caldav service. This is the service most caldav clients will subscribe to.
+
+Implements all the basic CalDAV standards. Additionally implements calendar sharing as defined and implemented by Apple.

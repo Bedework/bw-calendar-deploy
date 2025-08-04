@@ -1,0 +1,3 @@
+[[ucalws]]
+=== ucalws
+Provides an authenticated calws service - the SOAP calendar protocol.

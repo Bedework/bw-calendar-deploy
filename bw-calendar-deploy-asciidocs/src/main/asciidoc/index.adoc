@@ -1,0 +1,48 @@
+= Bedework deployed modules.
+:title: Bedework deployed modules.
+:safe-mode-unsafe:
+:docinfo: shared
+:docinfodir: ./docinfo
+:docinfo2:
+:scriptsdir: ./tocbot-3.0.2
+:imagesdir: ./resources/
+:toc: left
+:toclevels: 4
+:sectnumlevels: 4
+//
+:reports-dir: reports/
+//
+:sectnums!:
+
+include::introduction.adoc[]
+
+:sectnums:
+
+== Web services
+
+include::ws/notifyws.adoc[]
+
+include::ws/pubcaldav.adoc[]
+
+include::ws/pubcalws.adoc[]
+
+include::ws/synchws.adoc[]
+
+include::ws/ucaldav.adoc[]
+
+include::ws/ucalws.adoc[]
+
+== Web clients
+
+include::clients/caladmin.adoc[]
+
+include::clients/feeder.adoc[]
+
+include::clients/cal.adoc[]
+
+include::clients/demosoe.adoc[]
+
+include::clients/submit.adoc[]
+
+include::clients/ucal.adoc[]
+

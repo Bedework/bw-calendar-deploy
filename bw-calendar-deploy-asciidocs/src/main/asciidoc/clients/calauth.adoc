@@ -1,0 +1,7 @@
+[[calauth]]
+=== calauth
+Provides the main authenticated public calendar web application for bedework.
+
+This can be used to provide an internal view of calendar information. The only source difference is the web.xml to require authentication and change the app name and the jboss-web-xml to set the context.
+
+This ought to be changed to copy source from the unauthenticated app.

@@ -1,0 +1,3 @@
+[[synchws]]
+=== synchws
+Provides a service used by the synch engine to communicate with the calendar system.

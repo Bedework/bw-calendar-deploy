@@ -1,0 +1,7 @@
+[[demosoe]]
+=== demosoe
+Provides the soe public calendar web application for bedework.
+
+This is an example of a departmental view of calendar information. The only source difference is the web.xml to set the app name and the jboss-web-xml to set the context.
+
+This ought to be changed to copy source from the unauthenticated app.

@@ -1,0 +1,3 @@
+[[caladmin]]
+=== caladmin
+Provides the admin web client application.

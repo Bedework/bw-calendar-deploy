@@ -1,0 +1,3 @@
+[[pubcalws]]
+=== pubcalws
+Provides an unauthenticated calws service - the SOAP calendar protocol.

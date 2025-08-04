@@ -1,0 +1,7 @@
+[[notifyws]]
+=== notifyws
+Provides a notification endpoint for the calendar system. This can be used by event registration to notify the service of changes to event registration status.
+
+It is used by the notifier service to inform the system of a notification subscription.
+
+This service uses a specially configured version of caldav.

@@ -1,0 +1,3 @@
+[[cal]]
+=== cal
+Provides the main public calendar web application for bedework.
