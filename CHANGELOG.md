@@ -5,174 +5,152 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 ## Unreleased (5.1.0-SNAPSHOT)
 
 ## [5.0.0] - 2025-08-04
-* Mostly related to relocation of javascript and upgrade to jquery 3
-* A number of changes related to upgrading to jquery 3.x. 
-* Remove magnific from user calendar 
-* Remove magnific from admin and public web clients 
-* Fix submissions root variable 
-* Encode URL to make it legal 
-* Fix image handling 
-* Fix path to some images 
-* Encode '=' in urls 
-* Add id to logout link 
+* Add asciidocs 
+* Renamed modules 
+* Add docs directory 
+* Update parent to latest release for calendar client. Add eventreg values to globals and remove from form. Add event reg admin url to system properties. 
+* Fix struts for noAccess 
+* Add some results 
+* Add another valid package name for struts 
 * Update web.xml for jakarta 
-* Remove extra "/". Add msg to alert 
 * Add url for eventreg ws to jsp. 
-* Fix bad xsl after image changes 
-* Show current location and contact in search box 
 * Move most images into bedework-content in images directory. 
-* Move common javascript and css into bedework-content out of xsl-common. Update to latest of ones we had. Need to upgrade jquery. 
+* Temporarily disable new struts2 security features until we are fully migrated. 
+* Disable requirement for annotations for the moment. 
+* Update for struts v7 - enforces package and namespace 
+* Further changes to get calendar common and engine building 
 
 ## [4.1.3] - 2025-02-06
-* Remove all unnecessary refs to CalFacadeException. Move error codes out of CalFacadeException into CalFacadeErrorCode. 
-* Preparing for jakarta... Update parent to latest snapshot for all modules. Work to update hibernate second level cache to ehcache 3 + jcache. 
-    * Update configs 
-    * Update to new ehcache.xml 
-    * Update deployed hibernate module 
-* Add an attachments tab to event add/update 
-* New urls. 
+* Upgrade to struts 6.7.0 in advance of move to jakarta 
+* Preparing for jakarta. 
+* If we have an event in the inbox it was overriding the event we were trying to display. Being more explicit about scope seemed to fix things. 
 * Add url for new event reg web service to configs. Use it in client to post notifications. 
-* Use eventreg web service for forms list. Restructure web service 
 
 ## [4.1.2] - 2024-12-07
 * Changes for updated deployment 
-* Changes to help in tests - mainly add ids to elements 
-* Add an id to the registration iframe 
-* This was breaking the form on update. Not sure what the intent was. 
 
-## [4.1.1] - 2024-11-30
-* Update parent version 
-* make debugging easier 
-* Need to update dtstamp on save 
-* Much tidying up and bug fixes. 
-* Mistyped id name 
-* Don't sort the choices. Other code (highlighting best etc) use the order in the poll. To sort we need to use poll item id as key everywhere.
-* Use getParticpantAddrs for BwCalDAVEvent.getAttendeeUris 
-* Wrong field type 
-* Mostly fixes to the new code. Replies not getting through for a number of reasons. Rename some methods. Try to clarify handling of xproperties 
-* Changes related to using participants. At least puts up the display. 
-  expression testing wrong variable. Submitted aliases weren't recognized 
-* Site logo overlaps logout button. Move up a little 
-* Add prefix "/user" to match admin client 
-* Add id to logout button/link 
-* Remove blank line 
-* Same typo in js as for admin client 
-* Rename tab "users and Groups" 
-* Use variable to check for approver/super user etc. 
-* Need ignoreCreator for approval queue 
-* Fix issue with autocomplete of contacts. Added an id to the outer div to match locations. Made a few changes after prompting by intellij. 
+## [4.1.1] - 2024-11-26
+* Referencing wrong object - should have been globals 
+* Flush cached views every few mins 
+* Wrong class name for globals 
+* Removed confirmationId - not used. Removed savedEvent - not used. 
+* Moved currentCalSuite, calSuiteName into globals. 
 * Moved currentTab into globals. Moved ref out of all jsp files and into header.jsp 
-* Remove old commented out code 
-* Added a refresh operation to the synch engine and added associated code to the client side. 
-* Missing display checkbox when creating 
-* Fix up javascript for move from vvoter. 
+* Move oneGroup and adminGroupName into globals. 
+* Add yearVals attribute to selectDate and selectDateTime 
+* Move submissionsroot and workflowroot and associated flags 
+* Move today out of form into globals 
+* Move BwForm tag out of struts package into taglib. Was there for transition from struts1. Get rid of all refs to bwhtml 
+* Further changes to remove dependencies on form objects. 
+* Missing return value in config 
+* Use value in session rather than in form 
+* Use session variable rather than form 
 
-## [4.1.0] - 2024-04-01
-* Add error message 
+## [4.1.0] - 2024-04-03
+This release marked the move from struts1 to struts 2. This involved many changes as detailed below.
+* Fixes to the removal of bw-xml. Now appears to build and run correctly 
+* Next stage in removing the bw-xml module.
+  * icalendar schema moved into its own module  
+  * Many modules updated to refer to it  
+  * calws schema moved into caldav  
+  * feature pack update to deploy calws wsdls into bedework-content  
+  * Fixed timezone server context 
 * Update parent version 
-* Add missing string value to German 
-* Wrong header for exdates 
-* Align German and Spanish strings with default 
+* Seems we have to handle the input result - even though it's not clear where it comes from. 
+* Fix action 
+* Catch logged out session to avoid npe 
+* Fix widget return. 
+* Fix struts.xml for /cal - missing redirect 
+* Add badRequest action result 
+* Update parent version to latest. 
 * Add information to the view data so that we can sort on the displayed field rather than the path. 
-* Fix handling of pending submissions- add button to allow accepting 
-* Fix list-html for new xsl parser 
-* Fix the display of map icon 
-* Remove limits on display of pending events. 
-* Rename theme directory to something generic 
-* Not toggling the filter visibility 
-* Make it full width 
-* Fix approval/publish action and xsl. Only approvers are valid. 
-* Field is called "alt" 
-* Don't display start date for fetch more events 
-* Remove sharethis 
-* Use "button" rather than "a" for filter and view navigation. 
-* Suppress "Approve" button for non-approvers 
-* Same message for all recurring events 
-* Add event button on approval q for non-approvers 
-* Fix up the showing of current tab to refresh the search result each time. May result in some inefficiencies but it now shows changes as they are made. 
+* Force scope session. Struts2 is picking up objects from the request scope. 
+* Typo in name 
+* Deploy bw-xml as war instead of ear 
+* Handle validation errors 
+* Back off forwarding changes for add/update event 
+* Fix up the showing of current tab to refresh the search result each time. May result in some inefficiencies but it now shows changes as they are made.
 * Added page to handle approve/delete. Mostly working. 
-* Move "Edit master" to a button in a right hand column 
 * Remove last of tab specific stuff. 
+* Should be same as ro cal client 
 * Redo tab management for admin client. Add a currentTab form variable and output that in the jsp <tab> element. 
-* Use a variable for the event title 
 * Add methods to client to allow determination of approver status and return the current authorised user. Change validation - reversed sense of check. 
+* Fix login error retry link 
 * Fix setting of calendar path in InitAddEventAction 
-* Make the first step to simplifying the setting of calendar collections when adding/updating events. 
-* Add a primaryCollection flag to allow us to locate the actual main calendar collection. 
-* Add a primaryCollection flag to allow us to locate the actual main calendar collection. 
-* Add a comment 
-* Use grid layout to produce a more compact topical areas display. 
-* Try to make display of topical areas more robust. May need some tweaks to handle no top level collection aliases. 
-* Fix xsl for saxon 
-* Fix directory names 
-* Saxon xsl compatibility 
-* Should be xsl:value-of NOT xsl:variable 
-* Deleted old PDA directory 
-* Deleted old files 
-* Intellij files were deleted 
-* Upgrade to opensearch 2.1.0 
+* Use a system property to set struts 2 debug mode 
+* Wrong tag 
+* Fix feeder struts.xml 
 * iml files 
-* recurrence info not being saved 
-* cancel needs to be a submit to work 
-* Add guid and recurrenceId as hidden fields in the event form. Will allow checking that we still have the same event. 
-* Add guid and recurrenceId as hidden fields in the event form. Will allow checking that we still have the same event. 
-* put the timezones stuff back but without the form for updating timezones
+* Explicitly specify jsp scope - seems to be necessary for vpoll only 
+* Fix bad jsp 
+* Missing struts 2 pieces for calauth 
+* Remove struts 1 configs 
+* Fix path for loggedout 
+* Struts2 found some bad mappings 
+* First pass at move ucal to struts 2 
+* Feeder to struts2 
+* Apparent bad result in action. Possibly never used. 
+* struts 2 for soe 
+* struts 2 for submit 
+* Aspace. Try to customize upload messages 
+* Apparently we have to have result "input" to handle file upload errors 
+* Avoid null value for bad contacts 
+* Fix location update for struts 2. 
+* struts 2 updates for admin groups 
+* Removed struts 1 support. 
+* First pass at struts2 for caladmin 
+* Fix struts.xml and pattern on struts filter 
+* Try struts2 
+* Remove last dependecies on struts taglibs in jsp. 
+* New tags to select a contact and location and create a text field. 
+* Use select tag for all date/time fields in all forms. 
+* Add a select tag for all date/time fields 
+* Add a select tag in more places. Fix the tld 
+* Add a select tag to use instead of struts html tag 
+* Remove inclusion for file that doesn't exist (and hasn't for a long time) 
 * Fix dependencies on parent to be consistent. 
-* Add a missing space 
-* Remove unused uploadtimezones 
-* Add a duplicate resource message and output it in add resource. 
-* Add code to suppress no duration/end and forever recurrences. 
+* Add a BwFormTag to proxy the struts tag - also set xhtml for struts 1 
+* Drop the genurl tags - they were all html anyway 
+* Remove last of struts-logic tags. 
+* Add emitFormattedDates tag to replace emitDates.jsp 
+* Replace logic tags and fix previous change 
+* Replace logic tags for calendar display and search result 
+* Replace logic tags 
+* Replace logic tags in view displays. 
+* New bw tag to emit categories. 
+* Replace logic tags in main.jsp with core tags. 
+* New bw tag to emit various labels and values. 
+* New bw tag to emit messages and errors. 
+* New bw tag to emit rrules. 
+* New bw tag to emit xprops. 
+* logic:present changed to c:if 
+* log:present changed to c:if Comment out test forevent.target - doesn't work and we don't use it anyway 
+* Move errorForward to a context param 
+* Define the error forward in web.xml as an init-param. Embed that in the form when initialising. 
+* Put back xhtml for the moment 
+* Remove bean and html tags 
+* Add back xhtml for pages with html elements. 
+* Fix bad attribute 
+* Remove bean and html tags 
+* Fix pos in recurrences 
+* REmove more unused tags 
+* Remove bean and html tags 
+* Fix header 
+* Remove struts:bean tags 
+* Remove unused files and folders 
+* Remove unsed action and page 
+
+## [4.0.1] - 2022-02-16
+* Fix web.xml for ucal
 
 ## [4.0.0] - 2022-02-12
-* Update to latest wildfly.
+* Fix up logins after I broke them 
 * All calendar client wars broken out so they can be deployed independently 
 * Move all variable out of web app files. 
-* Restructure XSL into individual wars. Allows feature pack to use artifacts. 
+* Add feature pack module to bw-xml. 
 * Reduce parent version to simple number 
-* Fixes to xsl 
-* Use variable where possible.
-* Fix base path 
-* Further changes for ro calendar system. Now builds a wildfly instance and runs. 
-* Now deploys - fails to start due to missing versions. 
-* Reinstate scm section in poms 
-* Use bedework-parent for builds. 
-* Give superuser ability to search all calendar collections rather than just the main collection. 
-* Add campusgroups support to synch engine. 
-* Pass class loader as parameter when creating new objects. JMX interactions were failing. 
-* Updated library versions. Moved wfmodules into bw-wfmodules 
-* Add virtual reg link
-* Moved the remainder into RW or admin.
-* Remove some references to read-write actions.
-* Remove duplicate inclusions - they are in globals.xsl
-* Fix invalid XSL which was allowed through by older implementations.
-
-## [3.13.2] - 2020-03-23
-* Add single page submission client theme.
-* Fix update/add locations in user client
-* Add all the extra fields to the user client. Still need to fix styles
-* Fix up location styles in user client
-* Arlen updates for featured events.
-
-## [3.13.1] - 2019-10-16
-* Use combined values from location and implement NO-LINK for map urls.
-* change | operator to "or"
-
-## [3.13.0] - 2019-08-27
-* Less noise in logs.
-
-## [3.12.5] - 2019-06-27
-* Use deployment base for base.
-
-## [3.12.4] - 2019-04-15
-* Update dependencies
-* Missed file
-
-## [3.12.3] - 2019-01-07
-* Copy in location and contact search for admin client. Also location/contact changes for main client.
-
-## [3.12.2] - 2018-11-28
-* Fix jsonTz to use new form of expand.
-* Prefix hrefs with /approot
- 
-## [3.12.1] - 2018-05-22
-* First identifiable release.
+* iml files 
+* Fix up after attempt at deploying artifacts 
+* Straighten out versions and use artifacts to deploy the calendar ears. 
+* Replacement for bw-deploy which sounded too general. 
+* Initial commit 
