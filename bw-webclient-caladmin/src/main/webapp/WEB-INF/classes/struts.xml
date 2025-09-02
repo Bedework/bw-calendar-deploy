@@ -248,6 +248,10 @@
 
   <package name="bedeworkEvents" namespace="/event"
            extends="struts-default">
+    <global-results>
+      <result name="error" type="redirect">/main/showCurrentTab.rdo</result>
+    </global-results>
+
     <action    name="showEvent"
                class="org.bedework.webcommon.RenderAction">
       <param name="actionType">render</param>
@@ -303,7 +307,6 @@
       
       <result name="noAction" type="redirect">/main/showCurrentTab.rdo</result>
       <result name="notFound" type="redirect">/main/showCurrentTab.rdo</result>
-      <result name="error" type="redirect">/main/showCurrentTab.rdo</result>
       <result name="continue" type="redirect">/event/showModForm.rdo</result>
       <result name="copy" type="redirect">/event/showModForm.rdo</result>
     </action>
@@ -355,7 +358,6 @@
 
       <result name="noAction" type="redirect">/main/showCurrentTab.rdo</result>
       <result name="notFound" type="redirect">/main/showCurrentTab.rdo</result>
-      <result name="error" type="redirect">/main/showCurrentTab.rdo</result>
       <result name="validationError" type="redirect">/main/showCurrentTab.rdo</result>
       <result name="continue" type="redirect">/event/showApprovePublish.rdo</result>
       <result name="copy" type="redirect">/event/showApprovePublish.rdo</result>
@@ -579,7 +581,6 @@
       <result name="notAdded" type="redirect">/calendar/showAddForm.rdo</result>
       <result name="delete" type="redirect">/calendar/showDeleteConfirm.rdo</result>
     </action>
-
 
     <action    name="showMoveForm"
                class="org.bedework.webcommon.calendars.RenderCalendarAction">
