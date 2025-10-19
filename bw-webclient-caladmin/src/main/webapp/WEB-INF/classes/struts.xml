@@ -393,12 +393,28 @@
 
     <action    name="delete"
                class="org.bedework.client.web.rw.event.DeleteEventAction">
-               <param name="actionType">action</param>
+      <param name="actionType">action</param>
       <param name="conversation">continue</param>
       <result name="cancelled" type="redirect">/event/showUpdateList.rdo</result>
       <result name="noAction" type="redirect">/event/showDeleteConfirm.rdo</result>
       <result name="continue" type="redirect">/event/showUpdateList.rdo</result>
       <result name="success" type="redirect">/event/showUpdateList.rdo</result>
+    </action>
+
+    <!-- ................................................
+             Update status of an event
+         ................................................ -->
+
+    <action    name="updateStatus"
+               class="org.bedework.client.web.rw.event.StatusEventAction">
+      <param name="actionType">action</param>
+      <param name="conversation">start</param>
+      <result name="noAction"
+              type="redirect">/event/showUpdateList.rdo</result>
+      <result name="continue"
+              type="redirect">/event/showUpdateList.rdo</result>
+      <result name="success"
+              type="redirect">/event/showUpdateList.rdo</result>
     </action>
 
     <!-- ....................................................
