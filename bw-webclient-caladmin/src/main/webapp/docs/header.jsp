@@ -71,6 +71,7 @@ try {
                tagName="adminuri"/>
   <suggestionEnabled><c:out value="${globals.suggestionEnabled}"/></suggestionEnabled>
   <workflowEnabled><c:out value="${globals.workflowEnabled}"/></workflowEnabled>
+  <searchDone><c:out value="${globals.searchDone}"/></searchDone>
 
   <%-- Path to collections for public event submissions --%>
   <submissionsRoot>
@@ -95,9 +96,11 @@ try {
          the application and is not processed: it ensures that if we need to
          append the query string, we can always begin with an ampersand. --%>
     <setup><c:url value="/setup.do?b=de"/></setup>
+    <initEventList><c:url value="/main/initEventList.do?b=de"/></initEventList>
     <initPendingTab><c:url value="/main/initPendingTab.do?b=de"/></initPendingTab>
     <initApprovalQueueTab><c:url value="/main/initApprovalQueueTab.do?b=de"/></initApprovalQueueTab>
     <initSuggestionQueueTab><c:url value="/main/initSuggestionQueueTab.do?b=de"/></initSuggestionQueueTab>
+    <showSearchTab><c:url value="/main/showSearchTab.do?b=de"/></showSearchTab>
     <showCalsuiteTab><c:url value="/main/showCalsuiteTab.rdo?b=de"/></showCalsuiteTab>
     <showUsersTab><c:url value="/main/showUsersTab.rdo?b=de"/></showUsersTab>
     <showSystemTab><c:url value="/main/showSystemTab.rdo?b=de"/></showSystemTab>

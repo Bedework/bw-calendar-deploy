@@ -22,17 +22,13 @@ try {
     <c:set var="sres" value="${bw_search_result}"/>
     <bw:emitText name="sres" property="found" tagName="resultSize" />
     <c:forEach var="sre" items="${requestScope.bw_search_list}">
-      <searchResult>
-        <bw:emitText name="sre" property="score" />
-        <c:if test="${sre.docType == 'event'}">
-          <c:set var="eventFmt" value="${sre.entity}" scope="request"  />
-          <c:set var="eventInfo" value="${eventFmt.eventInfo}"
-                 scope="request"  />
-          <c:set var="event" value="${eventFmt.event}"
-                 scope="request"  />
-          <%@ include file="/docs/event/emitEventCommon.jsp" %>
-        </c:if>
-      </searchResult>
+      <c:if test="${sre.docType == 'event'}">
+        <c:set var="eventFormatter" value="${sre.entity}"
+               scope="request"  />
+        <c:set var="score" value="${sre.score}"
+               scope="request"  />
+        <%@ include file="/docs/event/emitEvent.jsp" %>
+      </c:if>
     </c:forEach>
   </c:if>
 

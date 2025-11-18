@@ -3,6 +3,9 @@
 
 <%-- Output a single event. This page handles fields common to all views --%>
   <event>
+    <c:if test='${not empty score}'>
+      <bw:emitText name="score"/>
+    </c:if>
     <bw:emitText name="event" property="created"/>
     <bw:emitText name="event" property="lastmod"/>
     <start><%-- start date and time --%>

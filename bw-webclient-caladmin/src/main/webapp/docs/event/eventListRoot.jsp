@@ -7,6 +7,12 @@
   <bw:emitText name="globals" property="eventRegAdminToken"/>
   <bw:emitText name="globals" property="eventRegWsUrl"/>
   <bw:emitText name="globals" property="eventRegAdminUrl"/>
+  <bw:emitText name="moduleState" property="query"/>
+  <bw:emitText name="moduleState" property="searchLimits"/>
+  <c:if test="${empty requestScope.bw_search_result}">
+    <resultSize>0</resultSize>
+  </c:if>
+
   <c:if test="${not empty requestScope.bw_search_result}">
     <c:set var="sres" value="${bw_search_result}" />
     <c:if test="${not empty requestScope.bw_search_params}" >
@@ -30,6 +36,8 @@
       <c:forEach var="sre" items="${requestScope.bw_search_list}">
         <c:if test="${sre.docType == 'event'}">
           <c:set var="eventFormatter" value="${sre.entity}"
+                 scope="request"  />
+          <c:set var="score" value="${sre.score}"
                  scope="request"  />
           <%@include file="/docs/event/emitEvent.jsp"%>
         </c:if>
