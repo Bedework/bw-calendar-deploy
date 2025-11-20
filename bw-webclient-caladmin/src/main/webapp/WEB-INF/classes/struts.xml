@@ -448,13 +448,14 @@
     <action    name="updateStatus"
                class="org.bedework.client.web.rw.event.StatusEventAction">
       <param name="actionType">action</param>
+      <param name="mdl">searchResults</param>
       <param name="conversation">start</param>
       <result name="noAction"
-              type="redirect">/event/showUpdateList.rdo</result>
+              type="redirect">/main/showSearchTab.do</result>
       <result name="continue"
-              type="redirect">/event/showUpdateList.rdo</result>
+              type="redirect">/main/showSearchTab.do</result>
       <result name="success"
-              type="redirect">/event/showUpdateList.rdo</result>
+              type="redirect">/main/showSearchTab.do</result>
     </action>
 
     <action    name="updateStatusFromSearch"
@@ -463,11 +464,11 @@
       <param name="mdl">searchResults</param>
       <param name="conversation">start</param>
       <result name="noAction"
-              type="redirect">/search/showSearchList.rdo</result>
+              type="redirect">/main/showSearchTab.do</result>
       <result name="continue"
-              type="redirect">/search/showSearchList.rdo</result>
+              type="redirect">/main/showSearchTab.do</result>
       <result name="success"
-              type="redirect">/search/showSearchList.rdo</result>
+              type="redirect">/main/showSearchTab.do</result>
     </action>
 
     <!-- ....................................................

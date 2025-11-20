@@ -127,6 +127,7 @@ try {
       <fetchForDisplay><c:url value="/event/fetchForDisplay.do?b=de"/></fetchForDisplay>
       <fetchForUpdate><c:url value="/event/fetchForUpdate.do?b=de"/></fetchForUpdate>
       <updateStatus><c:url value="/event/updateStatus.do?b=de"/></updateStatus>
+      <updateStatusFromSearch><c:url value="/event/updateStatusFromSearch.do?b=de"/></updateStatusFromSearch>
       <fetchUpdateList><c:url value="/event/fetchUpdateList.do?b=de"/></fetchUpdateList>
       <update><c:url value="/event/update.do?b=de"/></update>
       <selectCalForEvent><c:url value="/event/selectCalForEvent.do?b=de"/></selectCalForEvent>
