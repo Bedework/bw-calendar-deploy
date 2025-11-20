@@ -316,6 +316,25 @@
       <result name="noAction">/docs/event/eventList.jsp</result>
     </action>
 
+    <action    name="displayEventForNonApprover"
+               class="org.bedework.client.web.admin.event.AdminFetchEventAction">
+      <param name="actionType">action</param>
+      <param name="mdl">searchResults</param>
+
+      <result name="notFound" type="redirect">/main/showMain.rdo</result>
+      <result name="continue" type="redirect">/event/showEventForNonApprover.rdo</result>
+      <result name="noAction" type="redirect">/search/showSearchList.rdo</result>
+    </action>
+
+    <action    name="showEventForNonApprover"
+               class="org.bedework.webcommon.RenderAction">
+      <param name="actionType">render</param>
+      <param name="conversation">continue</param>
+      <param name="mdl">searchResults</param>
+
+      <result name="success">/docs/event/displayEventForNonApprover.jsp</result>
+    </action>
+
     <!-- ...................................................
          Edit an event
          delete forward only if we have a "delete" request parameter
@@ -436,6 +455,19 @@
               type="redirect">/event/showUpdateList.rdo</result>
       <result name="success"
               type="redirect">/event/showUpdateList.rdo</result>
+    </action>
+
+    <action    name="updateStatusFromSearch"
+               class="org.bedework.client.web.rw.event.StatusEventAction">
+      <param name="actionType">action</param>
+      <param name="mdl">searchResults</param>
+      <param name="conversation">start</param>
+      <result name="noAction"
+              type="redirect">/search/showSearchList.rdo</result>
+      <result name="continue"
+              type="redirect">/search/showSearchList.rdo</result>
+      <result name="success"
+              type="redirect">/search/showSearchList.rdo</result>
     </action>
 
     <!-- ....................................................

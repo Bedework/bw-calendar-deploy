@@ -119,6 +119,7 @@ try {
       <showModForm><c:url value="/event/showModForm.rdo?b=de"/></showModForm>
       <showUpdateList><c:url value="/event/showUpdateList.rdo?b=de"/></showUpdateList>
       <nextUpdateList><c:url value="/event/nextUpdateList.do?b=de"/></nextUpdateList>
+      <displayEventForNonApprover><c:url value="/event/displayEventForNonApprover.do?b=de"/></displayEventForNonApprover>
       <showDeleteConfirm><c:url value="/event/showDeleteConfirm.rdo?b=de"/></showDeleteConfirm>
       <initAddEvent><c:url value="/event/initAddEvent.do?b=de"/></initAddEvent>
       <initUpdateEvent><c:url value="/event/initUpdateEvent.do?b=de"/></initUpdateEvent>
