@@ -144,7 +144,7 @@
       <param name="actionType">render</param>
       <param name="conversation">only</param>
 
-      <result name="success">/docs/main.jsp</result>
+      <result name="success">/docs/event/eventList.jsp</result>
       <result name="noAccess">/docs/noAccess.jsp</result>
     </action>
 
@@ -154,7 +154,6 @@
       <param name="actionType">render</param>
       <param name="conversation">only</param>
 
-      <result name="main">/docs/event/eventList.jsp</result>
       <result name="events">/docs/event/eventList.jsp</result>
       <result name="approvalQueue">/docs/event/eventList.jsp</result>
       <result name="pending">/docs/event/eventList.jsp</result>
@@ -163,6 +162,8 @@
       <result name="users">/docs/tabUsers.jsp</result>
       <result name="calsuite">/docs/tabCalsuite.jsp</result>
       <result name="system">/docs/tabSystem.jsp</result>
+      <result name="contacts">/docs/tabSystem.jsp</result>
+      <result name="locations">/docs/tabSystem.jsp</result>
     </action>
 
     <action    name="showSearchTab"
@@ -240,6 +241,24 @@
       <param name="currentTab">system</param>
 
       <result name="success">/docs/tabSystem.jsp</result>
+    </action>
+
+    <action    name="showContactsTab"
+               class="org.bedework.client.web.admin.ShowTabAction">
+      <param name="actionType">render</param>
+      <param name="conversation">end</param>
+      <param name="currentTab">contacts</param>
+
+      <result name="success">/docs/contact/contactList.jsp</result>
+    </action>
+
+    <action    name="showLocationsTab"
+               class="org.bedework.client.web.admin.ShowTabAction">
+      <param name="actionType">render</param>
+      <param name="conversation">end</param>
+      <param name="currentTab">locations</param>
+
+      <result name="success">/docs/contact/locationList.jsp</result>
     </action>
   </package>
 
