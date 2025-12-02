@@ -11,7 +11,7 @@
 %>
 <%@include file="/docs/event/eventListRoot.jsp"%>
 
-<c:if test="${globals.currentTab == 'main'}">
+
   <%-- Output the writable calendars --%>
   <calendars>
     <c:forEach var="calendar" items="${sessionScope.bw_addcontent_collection_list}" >
@@ -24,7 +24,6 @@
   <%-- Output the categories for UI filtering: --%>
   <bw:emitCategories name="bw_categories_list" scope="session"
                      tagName="categories" indent="  "/>
-</c:if>
 <%
   } catch (final Throwable t) {
     t.printStackTrace();

@@ -155,6 +155,7 @@
       <param name="conversation">only</param>
 
       <result name="main">/docs/event/eventList.jsp</result>
+      <result name="events">/docs/event/eventList.jsp</result>
       <result name="approvalQueue">/docs/event/eventList.jsp</result>
       <result name="pending">/docs/event/eventList.jsp</result>
       <result name="suggestionQueue">/docs/event/eventList.jsp</result>
@@ -178,7 +179,7 @@
                class="org.bedework.client.web.admin.event.InitEventTabAction">
       <param name="actionType">action</param>
       <param name="conversation">start</param>
-      <param name="currentTab">main</param>
+      <param name="currentTab">events</param>
 
       <result name="success" type="redirect">/event/showUpdateList.rdo</result>
       <result name="listEvents" type="redirect">/event/showUpdateList.rdo</result>
