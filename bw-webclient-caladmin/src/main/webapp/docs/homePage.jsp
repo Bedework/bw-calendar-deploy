@@ -4,7 +4,7 @@
 <bedework>
 <%@include file="header.jsp"%>
 
-<page>main</page>
+<page>homePage</page>
 
 <%--  Generate form elements to be exposed.
       These can be manipulated in the xslt if desired.

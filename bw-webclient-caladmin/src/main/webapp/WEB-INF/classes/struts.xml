@@ -86,13 +86,13 @@
       <param name="actionType">render</param>
 
       <result name="success"
-              type="redirect">/main/showMain.rdo</result>
+              type="redirect">/main/showHome.rdo</result>
 
       <result name="noAccess"
-              type="redirect">/main/showMain.rdo</result>
+              type="redirect">/main/showHome.rdo</result>
 
       <result name="loggedOut"
-              type="redirect">/main/showMain.rdo</result>
+              type="redirect">/main/showHome.rdo</result>
 
       <result name="noGroupAssigned"
               type="redirect">/admin/showNoGroup.rdo</result>
@@ -114,37 +114,38 @@
 
       <result name="noGroupAssigned" type="redirect">/admin/showNoGroup.rdo</result>
 
-      <result name="error" type="redirect">/main/showMain.rdo</result>
+      <result name="error" type="redirect">/main/showHome.rdo</result>
 
-      <result name="accessError" type="redirect">/main/showMain.rdo</result>
+      <result name="accessError" type="redirect">/main/showHome.rdo</result>
 
-      <result name="badRequest" type="redirect">/main/showMain.rdo</result>
+      <result name="badRequest" type="redirect">/main/showHome.rdo</result>
 
-      <result name="noAccess" type="redirect">/main/showMain.rdo</result>
+      <result name="noAccess" type="redirect">/main/showHome.rdo</result>
 
-      <result name="notFound" type="redirect">/main/showMain.rdo</result>
+      <result name="notFound" type="redirect">/main/showHome.rdo</result>
 
-      <result name="success" type="redirect">/main/showMain.rdo</result>
+      <result name="success" type="redirect">/main/showHome.rdo</result>
 
-      <result name="cancelled" type="redirect">/main/showMain.rdo</result>
+      <result name="cancelled" type="redirect">/main/showHome.rdo</result>
 
-      <result name="loggedOut" type="redirect">/main/showMain.rdo</result>
+      <result name="loggedOut" type="redirect">/main/showHome.rdo</result>
 
       <!-- Forward for a new session from some bookmarked link; used by
            org.bedework.webcommon.RenderAction when a refresh is needed -->
-      <result name="gotomain">/main/showMain.rdo</result>
+      <result name="gotomain">/main/showHome.rdo</result>
     </global-results>
 
     <!-- =================================================
                           Fundamental Actions
      ================================================= -->
 
-    <action    name="showMain"
-               class="org.bedework.webcommon.RenderAction">
+    <action    name="showHome"
+               class="org.bedework.client.web.admin.ShowTabAction">
       <param name="actionType">render</param>
       <param name="conversation">only</param>
+      <param name="currentTab">homePage</param>
 
-      <result name="success">/docs/event/eventList.jsp</result>
+      <result name="success">/docs/homePage.jsp</result>
       <result name="noAccess">/docs/noAccess.jsp</result>
     </action>
 
@@ -331,7 +332,7 @@
                class="org.bedework.client.web.admin.event.AdminFetchEventAction">
       <param name="actionType">action</param>
       
-      <result name="notFound" type="redirect">/main/showMain.rdo</result>
+      <result name="notFound" type="redirect">/main/showHome.rdo</result>
       <result name="continue" type="redirect">/event/showEvent.rdo</result>
       <result name="noAction">/docs/event/eventList.jsp</result>
     </action>
@@ -341,7 +342,7 @@
       <param name="actionType">action</param>
       <param name="mdl">searchResults</param>
 
-      <result name="notFound" type="redirect">/main/showMain.rdo</result>
+      <result name="notFound" type="redirect">/main/showHome.rdo</result>
       <result name="continue" type="redirect">/event/showEventForNonApprover.rdo</result>
       <result name="noAction" type="redirect">/search/showSearchList.rdo</result>
     </action>
@@ -387,11 +388,11 @@
       
       <result name="validationError" type="redirect">/event/showModForm.rdo</result>
       <result name="duplicate" type="redirect">/event/showEditEvent.rdo</result>
-      <result name="success" type="redirect">/main/showMain.rdo</result>
+      <result name="success" type="redirect">/main/showHome.rdo</result>
       <result name="retry" type="redirect">/event/showModForm.rdo</result>
       <result name="input" type="redirect">/event/showModForm.rdo</result>
       <result name="delete" type="redirect">/event/showDeleteConfirm.rdo</result>
-      <result name="cancelled" type="redirect">/main/showMain.rdo</result>
+      <result name="cancelled" type="redirect">/main/showHome.rdo</result>
       <result name="copy" type="redirect">/event/showModForm.rdo</result>
     </action>
 
@@ -547,7 +548,7 @@
                class="org.bedework.webcommon.calendars.OpenCloseAction">
       <param name="actionType">render</param>
 
-      <result name="notFound">/docs/main.jsp</result>
+      <result name="notFound">/docs/homePage.jsp</result>
       <result name="success" type="redirect">/calendar/showModForm.rdo</result>
     </action>
 
@@ -555,7 +556,7 @@
                class="org.bedework.webcommon.calendars.OpenCloseAction">
       <param name="actionType">render</param>
 
-      <result name="notFound">/docs/main.jsp</result>
+      <result name="notFound">/docs/homePage.jsp</result>
       <result name="success" type="redirect">/event/showCalsForEvent.rdo</result>
     </action>
 
@@ -563,7 +564,7 @@
                class="org.bedework.webcommon.calendars.OpenCloseAction">
       <param name="actionType">render</param>
 
-      <result name="notFound">/docs/main.jsp</result>
+      <result name="notFound">/docs/homePage.jsp</result>
       <result name="success" type="redirect">/calendar/showDescriptionList.rdo</result>
     </action>
 
@@ -657,7 +658,7 @@
                class="org.bedework.webcommon.calendars.RenderCalendarAction">
       <param name="actionType">render</param>
       <param name="conversation">continue</param>
-      <result name="notFound">/docs/main.jsp</result>
+      <result name="notFound">/docs/homePage.jsp</result>
       <result name="success">/docs/calendar/modCalendar.jsp</result>
     </action>
 
@@ -675,14 +676,14 @@
     <action    name="showMoveForm"
                class="org.bedework.webcommon.calendars.RenderCalendarAction">
       <param name="actionType">render</param>
-      <result name="notFound">/docs/main.jsp</result>
+      <result name="notFound">/docs/homePage.jsp</result>
       <result name="success">/docs/calendar/moveCalendar.jsp</result>
     </action>
 
     <action    name="openCloseMove"
                class="org.bedework.webcommon.calendars.OpenCloseAction">
       <param name="actionType">action</param>
-      <result name="notFound">/docs/main.jsp</result>
+      <result name="notFound">/docs/homePage.jsp</result>
       <result name="success" type="redirect">/calendar/showMoveForm.rdo</result>
     </action>
   </package>
@@ -729,8 +730,8 @@
       <param name="actionType">action</param>
       <param name="conversation">only</param>
 
-      <result name="notFound" type="redirect">/main/showMain.rdo</result>
-      <result name="success" type="redirect">/main/showMain.rdo</result>
+      <result name="notFound" type="redirect">/main/showHome.rdo</result>
+      <result name="success" type="redirect">/main/showHome.rdo</result>
     </action>
 
     <action    name="delete"
@@ -1292,7 +1293,7 @@
                class="org.bedework.client.web.rw.contact.FetchContactAction">
       <param name="actionType">action</param>
 
-      <result name="notFound" type="redirect">/main/showMain.rdo</result>
+      <result name="notFound" type="redirect">/main/showHome.rdo</result>
       <result name="continue" type="redirect">/contact/showContact.rdo</result>
     </action>
 
@@ -1300,7 +1301,7 @@
                class="org.bedework.client.web.rw.contact.FetchContactAction">
       <param name="actionType">action</param>
 
-      <result name="notFound" type="redirect">/main/showMain.rdo</result>
+      <result name="notFound" type="redirect">/main/showHome.rdo</result>
       <result name="continue" type="redirect">/contact/showModForm.rdo</result>
     </action>
 
@@ -1398,7 +1399,7 @@
                class="org.bedework.client.web.rw.location.FetchLocationAction">
       <param name="actionType">action</param>
 
-      <result name="notFound" type="redirect">/main/showMain.rdo</result>
+      <result name="notFound" type="redirect">/main/showHome.rdo</result>
       <result name="continue" type="redirect">/location/showLocation.rdo</result>
     </action>
 
@@ -1406,7 +1407,7 @@
                class="org.bedework.client.web.rw.location.FetchLocationAction">
       <param name="actionType">action</param>
 
-      <result name="notFound" type="redirect">/main/showMain.rdo</result>
+      <result name="notFound" type="redirect">/main/showHome.rdo</result>
       <result name="continue" type="redirect">/location/showModForm.rdo</result>
     </action>
 
@@ -1483,7 +1484,7 @@
                class="org.bedework.client.web.rw.category.FetchCategoryAction">
       <param name="actionType">action</param>
 
-      <result name="notFound" type="redirect">/main/showMain.rdo</result>
+      <result name="notFound" type="redirect">/main/showHome.rdo</result>
       <result name="continue" type="redirect">/category/showModForm.rdo</result>
     </action>
 
@@ -1717,7 +1718,7 @@
       <param name="currentTab">searchResult</param>
       <param name="searchDone">true</param>
 
-      <result name="noAction" type="redirect">/main/showMain.rdo</result>
+      <result name="noAction" type="redirect">/main/showHome.rdo</result>
       <result name="success" type="redirect">/search/showSearchList.rdo</result>
       <result name="listEvents" type="redirect">/search/showSearchList.rdo</result>
     </action>

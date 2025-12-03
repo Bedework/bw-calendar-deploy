@@ -96,6 +96,7 @@ try {
          the application and is not processed: it ensures that if we need to
          append the query string, we can always begin with an ampersand. --%>
     <setup><c:url value="/setup.do?b=de"/></setup>
+    <showHomePage><c:url value="/main/showHome.rdo?b=de"/></showHomePage>
     <initEventList><c:url value="/main/initEventList.do?b=de"/></initEventList>
     <initPendingTab><c:url value="/main/initPendingTab.do?b=de"/></initPendingTab>
     <initApprovalQueueTab><c:url value="/main/initApprovalQueueTab.do?b=de"/></initApprovalQueueTab>

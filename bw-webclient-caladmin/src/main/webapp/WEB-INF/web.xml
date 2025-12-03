@@ -15,7 +15,7 @@
 
   <context-param>
     <param-name>errorForward</param-name>
-    <param-value>/main/showMain.rdo</param-value>
+    <param-value>/main/showHome.rdo</param-value>
   </context-param>
 
   <context-param>
