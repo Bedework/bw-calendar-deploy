@@ -15,6 +15,18 @@
       <bw:emitFormattedDates name="eventFmt" property="end" />
     </end>
     <bw:emitText name="event" property="creatorHref" tagName="creator"/>
+    <creatorGroup>
+      <c:if test="${not empty eventFmt.adminGroup}">
+       <bw:emitText name="eventFmt" property="adminGroup.account"
+                   tagName="name"/>
+      <bw:emitText name="eventFmt" property="adminGroup.description"
+                   tagName="desc"/>
+      <bw:emitText name="eventFmt" property="adminGroup.principalRef"
+                   tagName="href"/>
+      <bw:emitText name="eventFmt" property="adminGroup.ownerHref"
+                   tagName="ownerHref"/>
+      </c:if>
+    </creatorGroup>
     <bw:emitText name="event" property="name"/>
     <bw:emitText name="event" property="calSuite"/>
 
