@@ -328,6 +328,14 @@ try {
     <%-- user and group --%>
     <bw:emitText name="globals" property="currentUser"/>
     <bw:emitText name="globals" property="adminUserId" tagName="user"/>
+    <c:if test="${not empty globals.adminUser}" >
+      <bw:emitText name="globals"
+                   property="adminUser.principalRef"
+                   tagName="userRef"/>
+    </c:if>
+    <c:if test="${empty globals.adminUser}" >
+      <userRef/>
+    </c:if>
     <c:if test="${not empty globals.adminGroupName}" >
       <bw:emitText name="globals" property="adminGroupName" tagName="group"/>
       <bw:emitText name="globals" property="oneGroup"/>
