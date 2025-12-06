@@ -159,7 +159,6 @@
       <result name="approvalQueue">/docs/event/eventList.jsp</result>
       <result name="pending">/docs/event/eventList.jsp</result>
       <result name="suggestionQueue">/docs/event/eventList.jsp</result>
-      <result name="searchResult">/docs/event/eventList.jsp</result>
       <result name="users">/docs/tabUsers.jsp</result>
       <result name="calsuite">/docs/tabCalsuite.jsp</result>
       <result name="system">/docs/tabSystem.jsp</result>
@@ -259,7 +258,7 @@
       <param name="conversation">end</param>
       <param name="currentTab">locations</param>
 
-      <result name="success">/docs/contact/locationList.jsp</result>
+      <result name="success">/docs/location/locationList.jsp</result>
     </action>
   </package>
 
@@ -1716,7 +1715,6 @@
       <param name="mdl">searchResults</param>
       <param name="conversation">start</param>
       <param name="currentTab">searchResult</param>
-      <param name="searchDone">true</param>
 
       <result name="noAction" type="redirect">/main/showHome.rdo</result>
       <result name="success" type="redirect">/search/showSearchList.rdo</result>

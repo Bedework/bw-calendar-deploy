@@ -71,7 +71,6 @@ try {
                tagName="adminuri"/>
   <suggestionEnabled><c:out value="${globals.suggestionEnabled}"/></suggestionEnabled>
   <workflowEnabled><c:out value="${globals.workflowEnabled}"/></workflowEnabled>
-  <searchDone><c:out value="${globals.searchDone}"/></searchDone>
 
   <%-- Path to collections for public event submissions --%>
   <submissionsRoot>
