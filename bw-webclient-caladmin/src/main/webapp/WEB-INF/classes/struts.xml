@@ -162,8 +162,9 @@
       <result name="users">/docs/tabUsers.jsp</result>
       <result name="calsuite">/docs/tabCalsuite.jsp</result>
       <result name="system">/docs/tabSystem.jsp</result>
-      <result name="contacts">/docs/tabSystem.jsp</result>
-      <result name="locations">/docs/tabSystem.jsp</result>
+      <result name="contacts">/docs/contact/contactList.jsp</result>
+      <result name="locations">/docs/location/locationList.jsp</result>
+      <result name="categories">/docs/category/categoryList.jsp</result>
     </action>
 
     <action    name="showSearchTab"
@@ -244,7 +245,7 @@
     </action>
 
     <action    name="showContactsTab"
-               class="org.bedework.client.web.admin.ShowTabAction">
+               class="org.bedework.client.web.admin.contact.RenderEditableContactsAction">
       <param name="actionType">render</param>
       <param name="conversation">end</param>
       <param name="currentTab">contacts</param>
@@ -253,12 +254,21 @@
     </action>
 
     <action    name="showLocationsTab"
-               class="org.bedework.client.web.admin.ShowTabAction">
+               class="org.bedework.client.web.admin.location.RenderEditableLocationsAction">
       <param name="actionType">render</param>
       <param name="conversation">end</param>
       <param name="currentTab">locations</param>
 
       <result name="success">/docs/location/locationList.jsp</result>
+    </action>
+
+    <action    name="showCategoriesTab"
+               class="org.bedework.client.web.admin.categories.RenderEditableCategoriesAction">
+      <param name="actionType">render</param>
+      <param name="conversation">end</param>
+      <param name="currentTab">locations</param>
+
+      <result name="success">/docs/category/categoryList.jsp</result>
     </action>
   </package>
 

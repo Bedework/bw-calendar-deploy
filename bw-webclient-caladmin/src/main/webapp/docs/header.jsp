@@ -106,7 +106,7 @@ try {
     <showSystemTab><c:url value="/main/showSystemTab.rdo?b=de"/></showSystemTab>
     <showContactsTab><c:url value="/main/showContactsTab.rdo?b=de"/></showContactsTab>
     <showLocationsTab><c:url value="/main/showLocationsTab.rdo?b=de"/></showLocationsTab>
-    <showCategoriesTab><c:url value="/main/showCategories.rdo?b=de"/></showCategoriesTab>
+    <showCategoriesTab><c:url value="/main/showCategoriesTab.rdo?b=de"/></showCategoriesTab>
     <logout><c:url value="/setup.do?logout=true"/></logout>
 
     <search>
