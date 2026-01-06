@@ -10,7 +10,7 @@
   try {
 %>
 <%@include file="/docs/event/eventListRoot.jsp"%><%--
-  Output the writable calendars --%>
+  Output the public calendars --%>
   <calendars>
     <c:forEach var="calendar" items="${sessionScope.bw_addcontent_collection_list}" >
       <calendar>
