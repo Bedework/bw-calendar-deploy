@@ -139,6 +139,16 @@
                           Fundamental Actions
      ================================================= -->
 
+    <action    name="showHelp"
+               class="org.bedework.client.web.admin.ShowTabAction">
+      <param name="actionType">render</param>
+      <param name="conversation">only</param>
+      <param name="currentTab">helpPage</param>
+
+      <result name="success">/docs/helpPage.jsp</result>
+      <result name="noAccess">/docs/noAccess.jsp</result>
+    </action>
+
     <action    name="showHome"
                class="org.bedework.client.web.admin.ShowTabAction">
       <param name="actionType">render</param>
@@ -156,16 +166,18 @@
       <param name="conversation">only</param>
 
       <result name="addEvent">/docs/event/eventList.jsp</result>
-      <result name="events">/docs/event/eventList.jsp</result>
       <result name="approvalQueue">/docs/event/eventList.jsp</result>
+      <result name="calsuite">/docs/tabCalsuite.jsp</result>
+      <result name="categories">/docs/category/categoryList.jsp</result>
+      <result name="contacts">/docs/contact/contactList.jsp</result>
+      <result name="helpPage">/docs/event/helpPage.jsp</result>
+      <result name="homePage">/docs/event/homePage.jsp</result>
+      <result name="events">/docs/event/eventList.jsp</result>
+      <result name="locations">/docs/location/locationList.jsp</result>
       <result name="pending">/docs/event/eventList.jsp</result>
       <result name="suggestionQueue">/docs/event/eventList.jsp</result>
-      <result name="users">/docs/tabUsers.jsp</result>
-      <result name="calsuite">/docs/tabCalsuite.jsp</result>
       <result name="system">/docs/tabSystem.jsp</result>
-      <result name="contacts">/docs/contact/contactList.jsp</result>
-      <result name="locations">/docs/location/locationList.jsp</result>
-      <result name="categories">/docs/category/categoryList.jsp</result>
+      <result name="users">/docs/tabUsers.jsp</result>
     </action>
 
     <action    name="showSearchTab"
