@@ -164,30 +164,41 @@
                class="org.bedework.client.web.admin.ShowCurrentTabAction">
       <param name="actionType">render</param>
       <param name="conversation">only</param>
+      <param name="validForwards">
+        addEvent,
+        approvalQueue,
+        calsuite,
+        categories,
+        contacts,
+        events,
+        helpPage,
+        homePage,
+        pending,
+        suggestionQueue,
+        system,
+        users
+      </param>
+      <param name="eventSearches">
+        addEvent,
+        approvalQueue,
+        events,
+        pending,
+        suggestionQueue
+      </param>
 
       <result name="addEvent">/docs/event/eventList.jsp</result>
       <result name="approvalQueue">/docs/event/eventList.jsp</result>
       <result name="calsuite">/docs/tabCalsuite.jsp</result>
       <result name="categories">/docs/category/categoryList.jsp</result>
       <result name="contacts">/docs/contact/contactList.jsp</result>
+      <result name="events">/docs/event/eventList.jsp</result>
       <result name="helpPage">/docs/event/helpPage.jsp</result>
       <result name="homePage">/docs/event/homePage.jsp</result>
-      <result name="events">/docs/event/eventList.jsp</result>
       <result name="locations">/docs/location/locationList.jsp</result>
       <result name="pending">/docs/event/eventList.jsp</result>
       <result name="suggestionQueue">/docs/event/eventList.jsp</result>
       <result name="system">/docs/tabSystem.jsp</result>
       <result name="users">/docs/tabUsers.jsp</result>
-    </action>
-
-    <action    name="showSearchTab"
-               class="org.bedework.client.web.admin.search.ShowSearchTabAction">
-      <param name="actionType">action</param>
-      <param name="mdl">searchResults</param>
-      <param name="conversation">only</param>
-      <param name="currentTab">searchResult</param>
-
-      <result name="success" type="redirect">/search/showSearchList.rdo</result>
     </action>
 
     <action    name="initEventList"
@@ -356,24 +367,22 @@
       
       <result name="notFound" type="redirect">/main/showHome.rdo</result>
       <result name="continue" type="redirect">/event/showEvent.rdo</result>
-      <result name="noAction">/docs/event/eventList.jsp</result>
+      <result name="noAction" type="redirect">/event/showUpdateList.rdo</result>
     </action>
 
     <action    name="displayEventForNonApprover"
                class="org.bedework.client.web.admin.event.AdminFetchEventAction">
       <param name="actionType">action</param>
-      <param name="mdl">searchResults</param>
 
       <result name="notFound" type="redirect">/main/showHome.rdo</result>
       <result name="continue" type="redirect">/event/showEventForNonApprover.rdo</result>
-      <result name="noAction" type="redirect">/search/showSearchList.rdo</result>
+      <result name="noAction" type="redirect">/event/showUpdateList.rdo</result>
     </action>
 
     <action    name="showEventForNonApprover"
                class="org.bedework.webcommon.RenderAction">
       <param name="actionType">render</param>
       <param name="conversation">continue</param>
-      <param name="mdl">searchResults</param>
 
       <result name="success">/docs/event/displayEventForNonApprover.jsp</result>
     </action>
@@ -465,6 +474,7 @@
                <param name="actionType">action</param>
       <param name="conversation">continue</param>
       <result name="cancelled" type="redirect">/main/showCurrentTab.rdo</result>
+      <result name="noAccess" type="redirect">/main/showCurrentTab.rdo</result>
       <result name="noAction" type="redirect">/event/showApprovePublish.rdo</result>
       <result name="validationError" type="redirect">/main/showCurrentTab.rdo</result>
       <result name="continue" type="redirect">/main/showCurrentTab.rdo</result>
@@ -492,27 +502,13 @@
     <action    name="updateStatus"
                class="org.bedework.client.web.rw.event.StatusEventAction">
       <param name="actionType">action</param>
-      <param name="mdl">searchResults</param>
       <param name="conversation">start</param>
       <result name="noAction"
-              type="redirect">/main/showSearchTab.do</result>
+              type="redirect">/event/showUpdateList.rdo</result>
       <result name="continue"
-              type="redirect">/main/showSearchTab.do</result>
+              type="redirect">/event/showUpdateList.rdo</result>
       <result name="success"
-              type="redirect">/main/showSearchTab.do</result>
-    </action>
-
-    <action    name="updateStatusFromSearch"
-               class="org.bedework.client.web.rw.event.StatusEventAction">
-      <param name="actionType">action</param>
-      <param name="mdl">searchResults</param>
-      <param name="conversation">start</param>
-      <result name="noAction"
-              type="redirect">/main/showSearchTab.do</result>
-      <result name="continue"
-              type="redirect">/main/showSearchTab.do</result>
-      <result name="success"
-              type="redirect">/main/showSearchTab.do</result>
+              type="redirect">/event/showUpdateList.rdo</result>
     </action>
 
     <!-- ....................................................
@@ -1724,43 +1720,6 @@
 
       <result name="failed" type="redirect">/main/showSystemTab.rdo</result>
       <result name="success" type="redirect">/main/showSystemTab.rdo</result>
-    </action>
-  </package>
-
-  <!-- =================================================
-                         Searching
-       ================================================= -->
-
-  <package name="bedeworkSearch" namespace="/search"
-           extends="struts-default">
-    <action    name="search"
-               class="org.bedework.client.web.admin.event.InitEventTabAction">
-      <param name="actionType">action</param>
-      <param name="mdl">searchResults</param>
-      <param name="conversation">start</param>
-      <param name="currentTab">searchResult</param>
-
-      <result name="noAction" type="redirect">/main/showHome.rdo</result>
-      <result name="success" type="redirect">/search/showSearchList.rdo</result>
-      <result name="listEvents" type="redirect">/search/showSearchList.rdo</result>
-    </action>
-
-    <action    name="next"
-               class="org.bedework.webcommon.search.SearchNextAction">
-      <param name="actionType">action</param>
-      <param name="mdl">searchResults</param>
-      <param name="conversation">start</param>
-
-      <result name="success" type="redirect">/search/showSearchList.rdo</result>
-    </action>
-
-    <action    name="showSearchList"
-               class="org.bedework.webcommon.search.RenderSearchResultAction">
-      <param name="actionType">render</param>
-      <param name="mdl">searchResults</param>
-
-      <result name="success">/docs/event/eventList.jsp</result>
-      <result name="noAction">/docs/event/eventList.jsp</result>
     </action>
   </package>
 

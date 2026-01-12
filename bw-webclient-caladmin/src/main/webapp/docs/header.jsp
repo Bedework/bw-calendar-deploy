@@ -109,12 +109,7 @@ try {
     <showLocationsTab><c:url value="/main/showLocationsTab.rdo?b=de"/></showLocationsTab>
     <showCategoriesTab><c:url value="/main/showCategoriesTab.rdo?b=de"/></showCategoriesTab>
     <logout><c:url value="/setup.do?logout=true"/></logout>
-
-    <search>
-      <unindex><c:url value="/index/unindex.do?b=de"/></unindex>
-      <search><c:url value="/search/search.rdo?b=de"/></search>
-      <next><c:url value="/search/next.do?b=de"/></next>
-    </search>
+    <unindex><c:url value="/index/unindex.do?b=de"/></unindex>
 
     <event>
       <fetchForApprovePublish><c:url value="/event/fetchForApprovePublish.do?b=de"/></fetchForApprovePublish>
