@@ -337,6 +337,8 @@
 
       <result name="success"
               type="redirect">/event/showEventMore.rdo</result>
+
+      <result name="noAction" type="redirect">/main/showMain.rdo</result>
     </action>
 
     <action    name="showEventMore"
@@ -345,6 +347,7 @@
       <param name="conversation">end</param>
 
       <result name="success">/docs/event/eventMore.jsp</result>
+      <result name="noAction" type="redirect">/main/showMain.rdo</result>
     </action>
   </package>
 
