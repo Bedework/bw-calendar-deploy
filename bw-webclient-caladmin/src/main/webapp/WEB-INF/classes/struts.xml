@@ -290,7 +290,7 @@
                class="org.bedework.client.web.admin.categories.RenderEditableCategoriesAction">
       <param name="actionType">render</param>
       <param name="conversation">end</param>
-      <param name="currentTab">locations</param>
+      <param name="currentTab">categories</param>
 
       <result name="success">/docs/category/categoryList.jsp</result>
     </action>
