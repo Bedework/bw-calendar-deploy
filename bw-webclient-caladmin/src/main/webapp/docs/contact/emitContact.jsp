@@ -17,6 +17,7 @@
   </name>
   <bw:emitText name="contact" property="phone" />
   <bw:emitText name="contact" property="status" />
+  <bw:emitText name="contact" property="archived" />
   <c:if test="${not empty contact.email}">
     <bw:emitText name="contact" property="email"/>
   </c:if>

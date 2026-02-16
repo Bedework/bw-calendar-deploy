@@ -16,6 +16,7 @@
   <accessible><c:out value="${location.accessible}"/></accessible>
   <bw:emitText name="location" property="geouri" />
   <bw:emitText name="location" property="status" />
+  <bw:emitText name="location" property="archived" />
 
   <subaddress>
     <c:if test="${not empty location.subaddress}" >

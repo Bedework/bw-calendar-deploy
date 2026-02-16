@@ -6,6 +6,13 @@
 <page>contactList</page>
 
 <contacts>
+  <%
+    final String includeArchived = request.getParameter("includeArchived");
+    if (includeArchived != null) {
+      out.println("  <includeArchived>" + includeArchived +
+                          "</includeArchived>");
+    }
+  %>
   <c:if test="${not empty sessionScope.bw_editable_contacts_list}">
     <c:forEach var="contact" items="${sessionScope.bw_editable_contacts_list}">
       <%@include file="/docs/contact/emitContact.jsp"%>

@@ -41,6 +41,8 @@
                   tagName="link" />
     <bw:checkbox property="location.accessible"
                  tagName="accessible" />
+    <bw:checkbox property="location.archived"
+                 tagName="archived" />
     <bw:textField property="location.code" size="30"
                   tagName="code" />
     <bw:textField property="location.alternateAddress" size="30"

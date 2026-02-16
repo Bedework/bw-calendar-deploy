@@ -10,3 +10,5 @@
               tagName="link"/>
 <bw:textField property="contact.email" size="30"
               tagName="email"/>
+<bw:checkbox property="contact.archived"
+             tagName="archived" />
