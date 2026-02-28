@@ -71,6 +71,8 @@
   -->
 
 <struts>
+  <include file="bedework-struts-default.xml"/>
+
   <constant name="struts.devMode" value="${env.org_bedework_struts_devMode:false}" />
   <constant name="struts.multipart.maxSize" value="1000000" />
   <constant name="struts.enable.SlashesInActionNames" value="true"/>
@@ -80,7 +82,7 @@
             value="org.bedework.webcommon,org.bedework.calfacade" />
 
   <package name="bedeworkSetup" namespace="/"
-           extends="struts-default">
+           extends="bedework-default">
     <action    name="setup"
                class="org.bedework.webcommon.search.SearchParamsAction">
       <param name="actionType">action</param>
@@ -101,7 +103,7 @@
   </package>
 
   <package name="bedeworkMain" namespace="/main"
-           extends="struts-default">
+           extends="bedework-default">
     <!-- global redirects used by many actions -->
     <global-results>
       <!-- render forwards -->
@@ -326,7 +328,7 @@
          ================================================= -->
 
   <package name="bedeworkEvents" namespace="/event"
-           extends="struts-default">
+           extends="bedework-default">
     <!-- ..................................................
              Display an event
          .................................................. -->
@@ -604,7 +606,7 @@
   </package>
 
   <package name="bedeworkSchedule" namespace="/schedule"
-           extends="struts-default">
+           extends="bedework-default">
     <!-- ...................................................
          Show the inbox
          ................................................... -->
@@ -730,7 +732,7 @@
          ================================================= -->
 
   <package name="bedeworkMisc" namespace="/misc"
-           extends="struts-default">
+           extends="bedework-default">
     <action    name="export"
                class="org.bedework.webcommon.misc.ExportAction">
       <param name="actionType">resource</param>
@@ -789,7 +791,7 @@
        ================================================= -->
 
   <package name="bedeworkCats" namespace="/categories"
-           extends="struts-default">
+           extends="bedework-default">
     <!-- ...............................................
              Display categories page
          ............................................... -->
@@ -887,7 +889,7 @@
     <!-- ........... PERSONAL client only ...... -->
 
   <package name="bedeworkLocs" namespace="/location"
-           extends="struts-default">
+           extends="bedework-default">
     <action    name="showUpdateList"
                class="org.bedework.client.web.rw.location.FetchEditableAction">
       <param name="actionType">render</param>
@@ -962,7 +964,7 @@
      ================================================= -->
 
   <package name="bedeworkFreeBusy" namespace="/freeBusy"
-           extends="struts-default">
+           extends="bedework-default">
     <action    name="showFreeBusy"
                class="org.bedework.webcommon.RenderAction">
       <param name="actionType">render</param>
@@ -990,7 +992,7 @@
        ================================================= -->
 
   <package name="bedeworkCalendars" namespace="/calendar"
-           extends="struts-default">
+           extends="bedework-default">
     <action    name="publish"
                class="org.bedework.webcommon.misc.WebCalendarAction">
       <param name="actionType">resource</param>
@@ -1165,7 +1167,7 @@
        ================================================= -->
 
   <package name="bedeworkSharing" namespace="/sharing"
-           extends="struts-default">
+           extends="bedework-default">
     <action    name="sharecol"
                class="org.bedework.client.web.rw.sharing.ShareCollectionAction">
       <param name="actionType">action</param>
@@ -1216,7 +1218,7 @@
        ================================================= -->
 
   <package name="bedeworkNotify" namespace="/notify"
-           extends="struts-default">
+           extends="bedework-default">
     <!-- The following two actions do the same thing, and differ only by their
          conversation= parameter. The first action is used when no
          transaction is running; the second is used in the middle of a transaction
@@ -1275,7 +1277,7 @@
        ================================================= -->
 
   <package name="bedeworkVpoll" namespace="/vpoll"
-           extends="struts-default">
+           extends="bedework-default">
     <action    name="initManageVpoll"
                class="org.bedework.client.web.rw.schedule.ProcessInboxEvent">
       <param name="actionType">action</param>
@@ -1300,7 +1302,7 @@
        ================================================= -->
 
   <package name="bedeworkViews" namespace="/view"
-           extends="struts-default">
+           extends="bedework-default">
     <action    name="addView"
                class="org.bedework.client.web.rw.views.AddViewAction">
       <param name="actionType">action</param>
@@ -1321,7 +1323,7 @@
        ================================================= -->
 
   <package name="bedeworkPrefs" namespace="/prefs"
-           extends="struts-default">
+           extends="bedework-default">
     <action    name="showModForm"
                class="org.bedework.webcommon.RenderAction">
       <param name="actionType">render</param>
@@ -1378,7 +1380,7 @@
        ================================================= -->
 
   <package name="bedeworkMail" namespace="/mail"
-           extends="struts-default">
+           extends="bedework-default">
     <action    name="showEmailOptions"
                class="org.bedework.webcommon.event.RenderEventAction">
       <param name="actionType">render</param>
@@ -1408,7 +1410,7 @@
        ================================================= -->
 
   <package name="bedeworkAlarm" namespace="/alarm"
-           extends="struts-default">
+           extends="bedework-default">
     <action    name="showAlarmOptions"
                class="org.bedework.webcommon.event.RenderEventAction">
       <param name="actionType">render</param>
@@ -1437,7 +1439,7 @@
        ================================================= -->
 
   <package name="bedeworkSearch" namespace="/search"
-           extends="struts-default">
+           extends="bedework-default">
     <action    name="search"
                class="org.bedework.webcommon.search.SearchParamsAction">
       <param name="actionType">action</param>
@@ -1466,7 +1468,7 @@
   </package>
 
   <package name="bedeworkJson" namespace="/json"
-           extends="struts-default">
+           extends="bedework-default">
     <action    name="categories"
                class="org.bedework.webcommon.category.FetchCategoriesAction">
       <param name="actionType">action</param>
@@ -1481,7 +1483,7 @@
        ================================================= -->
 
   <package name="bedeworkWidget" namespace="/widget"
-           extends="struts-default">
+           extends="bedework-default">
     <action    name="showCategories"
                class="org.bedework.webcommon.RenderAction">
       <param name="actionType">render</param>

@@ -15,7 +15,7 @@
   <packaging>war</packaging>
 
   <properties>
-    <org.bedework.war.dependency>org.bedework.calendar.ro-war</org.bedework.war.dependency>
+    <org.bedework.war.dependency>org.bedework.calendar.ro-war,org.bedework.util.struts2</org.bedework.war.dependency>
   </properties>
 
   <build>

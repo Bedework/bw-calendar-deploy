@@ -71,6 +71,8 @@
      -->
 
 <struts>
+  <include file="bedework-struts-default.xml"/>
+
   <constant name="struts.devMode" value="${env.org_bedework_struts_devMode:false}" />
   <constant name="struts.multipart.maxSize" value="1000000" />
   <constant name="struts.enable.SlashesInActionNames" value="true"/>
@@ -80,7 +82,7 @@
             value="org.bedework.webcommon,org.bedework.calfacade" />
 
   <package name="bedeworkSetup" namespace="/"
-           extends="struts-default">
+           extends="bedework-default">
     <action    name="setup"
                class="org.bedework.client.web.admin.MainAction">
       <param name="actionType">render</param>
@@ -103,7 +105,7 @@
   </package>
 
   <package name="bedeworkMain" namespace="/main"
-           extends="struts-default">
+           extends="bedework-default">
     <!-- global redirects used by many actions -->
     <global-results>
       <!-- set up state and get going. -->
@@ -297,7 +299,7 @@
   </package>
 
   <package name="bedeworkAdmin" namespace="/admin"
-           extends="struts-default">
+           extends="bedework-default">
     <action    name="showNoAccess"
                class="org.bedework.webcommon.RenderAction">
       <param name="actionType">render</param>
@@ -322,7 +324,7 @@
      ================================================= -->
 
   <package name="bedeworkEvents" namespace="/event"
-           extends="struts-default">
+           extends="bedework-default">
     <global-results>
       <result name="error" type="redirect">/main/showCurrentTab.rdo</result>
     </global-results>
@@ -562,7 +564,7 @@
      ================================================= -->
 
   <package name="bedeworkCalendars" namespace="/calendar"
-           extends="struts-default">
+           extends="bedework-default">
     <action    name="openCloseMod"
                class="org.bedework.webcommon.calendars.OpenCloseAction">
       <param name="actionType">render</param>
@@ -712,7 +714,7 @@
        ================================================= -->
 
   <package name="bedeworkFilter" namespace="/filter"
-           extends="struts-default">
+           extends="bedework-default">
     <!-- ..................................................
              Add a filter
          .................................................. -->
@@ -771,7 +773,7 @@
          ================================================= -->
 
   <package name="bedeworkSubs" namespace="/subs"
-           extends="struts-default">
+           extends="bedework-default">
     <action    name="openCloseMod"
                class="org.bedework.webcommon.calendars.OpenCloseAction">
       <param name="actionType">action</param>
@@ -860,7 +862,7 @@
        ================================================= -->
 
   <package name="bedeworkNotify" namespace="/notify"
-           extends="struts-default">
+           extends="bedework-default">
     <!-- The following two actions do the same thing, and differ only by their
          conversation= parameter. The first action is used when no
          transaction is running; the second is used in the middle of a transaction
@@ -921,7 +923,7 @@
        ================================================= -->
 
   <package name="bedeworkCalsuite" namespace="/calsuite"
-           extends="struts-default">
+           extends="bedework-default">
     <action    name="showCalSuites"
                class="org.bedework.client.web.admin.AdminRenderAction">
       <param name="actionType">render</param>
@@ -1016,7 +1018,7 @@
        ================================================= -->
 
   <package name="bedeworkSuggest" namespace="/suggest"
-           extends="struts-default">
+           extends="bedework-default">
     <action    name="setStatus"
                class="org.bedework.client.web.admin.event.SuggestAction">
       <param name="actionType">action</param>
@@ -1036,7 +1038,7 @@
        ================================================= -->
 
   <package name="bedeworkView" namespace="/view"
-           extends="struts-default">
+           extends="bedework-default">
     <action    name="showViews"
                class="org.bedework.webcommon.RenderAction">
       <param name="actionType">render</param>
@@ -1101,7 +1103,7 @@
        ================================================= -->
 
   <package name="bedeworkResource" namespace="/resource"
-           extends="struts-default">
+           extends="bedework-default">
     <action    name="showResources"
                class="org.bedework.client.web.admin.resources.RenderResourcesAction">
       <param name="actionType">render</param>
@@ -1164,7 +1166,7 @@
        ================================================= -->
 
   <package name="bedeworkGlobalres" namespace="/globalres"
-           extends="struts-default">
+           extends="bedework-default">
   <action    name="showResources"
                class="org.bedework.client.web.admin.resources.RenderGlobalResourcesAction">
       <param name="actionType">render</param>
@@ -1233,7 +1235,7 @@
        ================================================= -->
 
   <package name="bedeworkTimezones" namespace="/timezones"
-           extends="struts-default">
+           extends="bedework-default">
     <action    name="fix"
                class="org.bedework.client.web.admin.timezones.FixTimezonesAction">
       <param name="actionType">action</param>
@@ -1248,7 +1250,7 @@
        ================================================= -->
 
   <package name="bedeworkContacts" namespace="/contact"
-           extends="struts-default">
+           extends="bedework-default">
     <action    name="showContact"
                class="org.bedework.client.web.admin.contact.RenderEditableContactsAction">
       <param name="actionType">render</param>
@@ -1341,7 +1343,7 @@
        ================================================= -->
 
   <package name="bedeworkLocs" namespace="/location"
-           extends="struts-default">
+           extends="bedework-default">
     <!-- Must be a gdo action - returns json -->
     <action    name="addsub"
                class="org.bedework.client.web.admin.location.AddSubLocationAction">
@@ -1446,7 +1448,7 @@
      ================================================= -->
 
   <package name="bedeworkCategory" namespace="/category"
-           extends="struts-default">
+           extends="bedework-default">
     <action    name="showReferenced"
                class="org.bedework.webcommon.RenderAction">
       <param name="actionType">render</param>
@@ -1530,7 +1532,7 @@
        ================================================= -->
 
   <package name="bedeworkAuthuser" namespace="/authuser"
-           extends="struts-default">
+           extends="bedework-default">
     <action    name="showModForm"
                class="org.bedework.webcommon.RenderAction">
       <param name="actionType">render</param>
@@ -1575,7 +1577,7 @@
      ================================================= -->
 
   <package name="bedeworkPrefs" namespace="/prefs"
-           extends="struts-default">
+           extends="bedework-default">
     <action    name="showModForm"
                class="org.bedework.webcommon.RenderAction">
       <param name="actionType">render</param>
@@ -1606,7 +1608,7 @@
      ================================================= -->
 
   <package name="bedeworkAdmingroup" namespace="/admingroup"
-           extends="struts-default">
+           extends="bedework-default">
     <action    name="showChooseGroup"
                class="org.bedework.client.web.admin.AdminRenderAction">
       <param name="actionType">render</param>
@@ -1713,7 +1715,7 @@
   </package>
 
   <package name="bedeworkIndex" namespace="/index"
-           extends="struts-default">
+           extends="bedework-default">
     <action    name="unindex"
                class="org.bedework.client.web.admin.misc.UnindexAction">
       <param name="actionType">action</param>
@@ -1724,7 +1726,7 @@
   </package>
 
   <package name="bedeworkJson" namespace="/json"
-           extends="struts-default">
+           extends="bedework-default">
     <action    name="admingroups"
                class="org.bedework.webcommon.admingroup.FetchAdminGroupsAction">
       <param name="actionType">action</param>

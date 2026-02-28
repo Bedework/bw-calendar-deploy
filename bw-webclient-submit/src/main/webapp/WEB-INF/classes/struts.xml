@@ -71,6 +71,8 @@
   -->
 
 <struts>
+  <include file="bedework-struts-default.xml"/>
+
   <constant name="struts.devMode" value="${env.org_bedework_struts_devMode:false}" />
   <constant name="struts.multipart.maxSize" value="1000000" />
   <constant name="struts.enable.SlashesInActionNames" value="true"/>
@@ -80,7 +82,7 @@
             value="org.bedework.webcommon,org.bedework.calfacade" />
 
   <package name="bedeworkSetup" namespace="/"
-           extends="struts-default">
+           extends="bedework-default">
     <action    name="setup"
                class="org.bedework.webcommon.NoopAction">
       <param name="actionType">action</param>
@@ -93,7 +95,7 @@
   </package>
 
   <package name="bedeworkMain" namespace="/main"
-           extends="struts-default">
+           extends="bedework-default">
     <!-- ========== Global Forward Definitions ==============
          We try to standardize the forwards a bit.
          "success"  takes us back to the main page
@@ -190,7 +192,7 @@
        ================================================ -->
 
   <package name="bedeworkEvents" namespace="/event"
-           extends="struts-default">
+           extends="bedework-default">
     <!-- ......................................................
              Display an event
          ................................................ -->
@@ -420,7 +422,7 @@
        ================================================ -->
 
   <package name="bedeworkMisc" namespace="/misc"
-           extends="struts-default">
+           extends="bedework-default">
     <!-- renderUrl -->
     <action    name="initUpload"
                class="org.bedework.webcommon.RenderAction">
@@ -447,7 +449,7 @@
        ================================================ -->
 
   <package name="bedeworkCats" namespace="/categories"
-           extends="struts-default">
+           extends="bedework-default">
     <!-- ................................................
              Display categories page
          ................................................ -->
@@ -478,7 +480,7 @@
          ================================================ -->
 
   <package name="bedeworkCalendars" namespace="/calendar"
-           extends="struts-default">
+           extends="bedework-default">
     <action    name="showPublicCals"
                class="org.bedework.webcommon.RenderAction">
       <param name="actionType">render</param>
@@ -499,7 +501,7 @@
        ================================================ -->
 
   <package name="bedeworkSearch" namespace="/search"
-           extends="struts-default">
+           extends="bedework-default">
     <action    name="search"
                class="org.bedework.webcommon.search.SearchParamsAction">
       <param name="actionType">action</param>
